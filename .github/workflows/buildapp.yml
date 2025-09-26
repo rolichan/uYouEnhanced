@@ -100,7 +100,7 @@ jobs:
           mv *.sdk $THEOS/sdks
         env:
           THEOS: ${{ github.workspace }}/theos
-
+          
       - name: Setup Theos Jailed
         uses: actions/checkout@v4.2.2
         with:
@@ -108,6 +108,14 @@ jobs:
           ref: master
           path: theos-jailed
           submodules: recursive
+
+      - name: Setup PSHeader
+        uses: actions/checkout@v4
+        with:
+          repository: opa334/PSHeader
+          path: PSHeader
+
+
 
       - name: Install Theos Jailed
         run: |
